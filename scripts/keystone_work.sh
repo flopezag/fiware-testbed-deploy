@@ -40,15 +40,15 @@ pip install -e git+https://github.com/ging/python-keystoneclient.git#egg=python-
 export PYTHONPATH=~/fiware-testbed-deploy
 
 # change idm default password & generate new credential
-./change_idm_password.py
+./../fiwaretestbeddeploy/change_idm_password.py
 
 # create properties
-./generate_region_config.py
+./../fiwaretestbeddeploy/generate_region_config.py
 
 # register region data and create service project if it does not exist
 . config_vars
 . ~/credential
-./register_region.py
+./../fiwaretestbeddeploy/register_region.py
 
 # append tenant id of service to configuration file
 get_tenant_id() {
