@@ -1,0 +1,12 @@
+export KEYSTONE_IP=130.206.114.222
+export ADM_TENANT_ID=993ad41c0a364615b71e1d5723331c57
+export USER_TENANT_ID=e76a0d73b1c845a788b118fee6c622a3
+export ADM_TENANT_NAME='admin'
+export USER_TENANT_NAME='idm'
+export ADM_USERNAME='admin'
+export USER_USERNAME='idm'
+export ADM_PASSWORD='Ehq7wNivsRKV3uHQXSwaOOesu2QVd3'
+export USER_PASSWORD='idm'
+
+
+
