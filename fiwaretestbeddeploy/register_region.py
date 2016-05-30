@@ -187,17 +187,12 @@ class RegisterRegion(object):
         osclients = OpenStackClients()
         keystone = osclients.get_keystoneclient()
         try:
-            print os.environ['OS_REGION_NAME']
-            print os.environ['OS_USER_DOMAIN_NAME']
             self.keystone.domains.find(name="default")
             return keystone
         except Exception as e:
-            print e
             os.environ['OS_USER_DOMAIN_NAME'] = "Default"
             os.environ['OS_PROJECT_DOMAIN_ID'] = "default"
             os.environ['OS_REGION_NAME'] = "Spain2"
-            print os.environ['OS_REGION_NAME']
-            print os.environ['OS_USER_DOMAIN_NAME']
             osclients = OpenStackClients()
             return osclients.get_keystoneclient()
 
