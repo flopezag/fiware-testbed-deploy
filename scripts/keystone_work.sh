@@ -53,7 +53,7 @@ export PYTHONPATH=~/fiware-testbed-deploy
 # append tenant id of service to configuration file
 get_tenant_id() {
 cat <<EOF | python
-from utils.osclients import osclients
+from fiwaretestbeddeploy.utils.osclients import osclients
 print osclients.get_keystoneclient().projects.find(name="$1").id,
 EOF
 }
