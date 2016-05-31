@@ -43,15 +43,6 @@ modules_available = {
     'swift': 'swiftclient.client'
 }
 
-env["OS_AUTH_URL"] = "http://cloud.lab.fiware.org:4731/v3"
-env["OS_USERNAME"] = "henar@tid.es"
-env["OS_PASSWORD"] = "vallelado"
-env["OS_TENANT_NAME"] = "henar cloud"
-env["OS_REGION_NAME"] = "Spain2"
-env["OS_USER_DOMAIN_NAME"] = "default"
-env["OS_PROJECT_DOMAIN_NAME"] = "default"
-env["OS_IDENTITY_API_VERSION"] = "3"
-
 class OpenStackClients(object):
     """This class provides methods to obtains several openstack clients,
     sharing the session:
