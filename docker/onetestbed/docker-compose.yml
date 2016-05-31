@@ -1,5 +1,5 @@
-fiware-skuld-one-testbed:
-  image: fiware-skuld-one-testbed
+deploy_one_testbed:
+  image: deploy_one_testbed
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME
