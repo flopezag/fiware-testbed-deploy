@@ -6,7 +6,9 @@ RUN apt-get update && apt-get -y install python-pip python-dev \
 RUN git clone https://github.com/telefonicaid/fiware-testbed-deploy/ /home/ubuntu/fiware-testbed-deploy/
 WORKDIR /home/ubuntu/fiware-testbed-deploy/
 RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 RUN python setup.py install
+
 RUN mkdir /root/.ssh
 COPY start.sh /home/ubuntu/fiware-testbed-deploy/start.sh
 CMD ./start.sh
