@@ -3,14 +3,11 @@ RUN apt-get update && apt-get -y install python-pip python-dev \
   libmysqlclient-dev libpq-dev \
   libxml2-dev libxslt1-dev git \
   libffi-dev zip python-mysqldb 
-RUN git clone https://github.com/telefonicaid/fiware-skuld/ /home/ubuntu/fiware-skuld/
-WORKDIR /home/ubuntu/fiware-skuld/
-RUN git checkout docker
-RUN git branch
-RUN pip install -r requirements.txt
-RUN pip install -r test-requirements.txt
+RUN git clone https://github.com/telefonicaid/fiware-testbed-deploy/ /home/ubuntu/fiware-testbed-deploy/
+WORKDIR /home/ubuntu/fiware-testbed-deploy/
+RUN pip install --upgrade pip
 RUN python setup.py install
 RUN mkdir /root/.ssh
-COPY start.sh /home/ubuntu/fiware-skuld/start.sh
+COPY start.sh /home/ubuntu/fiware-testbed-deploy/start.sh
 CMD ./start.sh
 

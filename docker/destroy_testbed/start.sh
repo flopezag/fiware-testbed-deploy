@@ -1,1 +1,1 @@
-./tests/install_testbed/destroytestbeds.py
+./fiwaredeploytestbed/destroytestbeds.py
