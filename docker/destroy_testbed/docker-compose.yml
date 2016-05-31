@@ -1,5 +1,5 @@
-fiware-skuld-delete_testbed:
-  image: fiware-skuld-delete_testbed
+delete_testbed:
+  image: delete_testbed
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME
