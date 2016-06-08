@@ -287,4 +287,5 @@ def deploy_testbed():
                   region_keystone)
 
 if __name__ == "__main__":
+    os.environ["OS_AUTH_URL"] = "http://cloud.lab.fiware."
     deploy_testbed()

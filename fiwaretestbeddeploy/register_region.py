@@ -183,7 +183,7 @@ class RegisterRegion(object):
 
     def get_credentials(self):
         os.environ['OS_REGION_NAME'] = self.get_region()
-        osclients = OpenStackClients('http://$KEYSTONE_HOST:5000/v3/')
+        osclients = OpenStackClients()
         keystone = osclients.get_keystoneclient()
         try:
             self.keystone.domains.find(name="default")
@@ -199,7 +199,7 @@ class RegisterRegion(object):
         os.environ['OS_USER_DOMAIN_NAME'] = "default"
         os.environ['OS_PROJECT_DOMAIN_NAME'] = "default"
         os.environ['OS_REGION_NAME'] = os.environ['REGION']
-        osclients = OpenStackClients('http://$KEYSTONE_HOST:5000/v3/')
+        osclients = OpenStackClients()
         return osclients.get_keystoneclient()
 
     def is_region(self, region_id):
