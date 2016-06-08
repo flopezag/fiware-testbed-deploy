@@ -27,8 +27,6 @@ import os
 from keystoneclient.v3 import client
 import datetime
 
-FIWARE_DEFAULT_CLOUD_ROLE_ID = '8605715701e44bf5be1e2fbe49cab0'
-
 
 class GenerateUser(object):
     """Class to generate users."""
@@ -41,7 +39,6 @@ class GenerateUser(object):
             password="idm",
             project_name="idm",
             auth_url=endpoint)
-        self.id = user_name
         self.user_name = user_name
         self.password = password
         self.tenant_name = tenant_name
@@ -96,26 +93,6 @@ class GenerateUser(object):
             role=trial_role.id,
             domain='default')
 
-    def get_purchaser_role(self):
-        """ It gets the purcharse role.
-        :return:
-        """
-        role_id = FIWARE_DEFAULT_CLOUD_ROLE_ID
-        return self.keystone.roles.get(role_id)
-
-    def add_to_organization(self, user):
-        """
-        It adds the community the user to the organization.
-        :param user: the user
-        :return:
-        """
-        purchaser = self.keystone.roles.find(name="basic")
-        FIWARE_CLOUD_APP = 'Cloud'
-        self.keystone.fiware_roles.roles.add_to_organization(
-            role=purchaser,
-            organization=user.cloud_project_id,
-            application=FIWARE_CLOUD_APP)
-
     def create_user(self):
         """ It creates a user
         :return:
@@ -123,16 +100,17 @@ class GenerateUser(object):
         users = self.keystone.users.list(username=self.user_name)
         if not users:
             user = self.keystone.user_registration.users.register_user(
-                self.id,
+                self.user_name,
                 domain="default",
                 password=self.password,
                 username=self.user_name)
 
-            user = self.keystone.user_registration.users.activate_user(
+            self.keystone.user_registration.users.activate_user(
                 user=user.id,
                 activation_key=user.activation_key)
-        else:
-            user = users[0]
+            users = self.keystone.users.list(username=self.user_name)
+
+        user = users[0]
 
         if self.role_name == "community":
             self.update_to_community(user, 100)
@@ -153,8 +131,4 @@ if __name__ == '__main__':
     create = GenerateUser("basic_user", "basic_user", "basic_user", "basic")
     create.create_user()
     create = GenerateUser("test", "test", "test", "community")
-    create.create_user()
-    create = GenerateUser("tesdt", "tedst", "tesdt", "community")
-    create.create_user()
-    create = GenerateUser("teaddassasdfsddt", "tedasdaassdsfasdfst", "dtesasssdt", "basic")
     create.create_user()
