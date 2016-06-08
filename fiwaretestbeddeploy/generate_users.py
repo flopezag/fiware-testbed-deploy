@@ -34,7 +34,6 @@ class GenerateUser(object):
     """Class to generate users."""
     def __init__(self, user_name, password, tenant_name, role_name):
         """constructor"""
-        os.environ["KEYSTONE_HOST"] = "130.206.119.127"
         endpoint = 'http://{ip}:{port}/v3'.format(ip=os.environ["KEYSTONE_HOST"],
                                               port=5000)
         self.keystone = client.Client(
@@ -42,7 +41,7 @@ class GenerateUser(object):
             password="idm",
             project_name="idm",
             auth_url=endpoint)
-        self.id = user_name 
+        self.id = user_name
         self.user_name = user_name
         self.password = password
         self.tenant_name = tenant_name
