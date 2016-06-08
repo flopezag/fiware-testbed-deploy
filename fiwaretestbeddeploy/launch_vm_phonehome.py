@@ -33,10 +33,8 @@ from utils.osclients import osclients
 import launch_vm
 
 
-
 # Get networks
 def deploy_phone_home_vm():
-    env["BOOKED_IP"] = "130.206.119.128"
     network = dict()
     neutron = osclients.get_neutronclient()
     nova = osclients.get_novaclient()

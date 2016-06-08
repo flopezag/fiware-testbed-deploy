@@ -29,16 +29,16 @@ import os
 import os.path
 from os import environ as env
 
-from fiwareskuld.utils.osclients import osclients
+from utils.osclients import osclients
 import launch_vm
-
-
-
-# Get networks
 from settings import settings
 
 
 def deploy_testbeds():
+    """
+    It deploy the testbed
+    :return:
+    """
 
     network = dict()
     neutron = osclients.get_neutronclient()

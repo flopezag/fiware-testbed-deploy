@@ -133,7 +133,6 @@ class RegisterRegion(object):
         os.environ['OS_REGION_NAME'] = os.environ['REGION']
         self.region_exists(os.environ['REGION'])
 
-
     def get_region(self):
         p2 = Popen(["curl", "http://169.254.169.254/openstack/latest/meta_data.json"], stdout=PIPE)
         metadatajson, err = p2.communicate()
@@ -184,7 +183,7 @@ class RegisterRegion(object):
 
     def get_credentials(self):
         os.environ['OS_REGION_NAME'] = self.get_region()
-        osclients = OpenStackClients()
+        osclients = OpenStackClients('http://$KEYSTONE_HOST:5000/v3/')
         keystone = osclients.get_keystoneclient()
         try:
             self.keystone.domains.find(name="default")
@@ -200,7 +199,7 @@ class RegisterRegion(object):
         os.environ['OS_USER_DOMAIN_NAME'] = "default"
         os.environ['OS_PROJECT_DOMAIN_NAME'] = "default"
         os.environ['OS_REGION_NAME'] = os.environ['REGION']
-        osclients = OpenStackClients()
+        osclients = OpenStackClients('http://$KEYSTONE_HOST:5000/v3/')
         return osclients.get_keystoneclient()
 
     def is_region(self, region_id):

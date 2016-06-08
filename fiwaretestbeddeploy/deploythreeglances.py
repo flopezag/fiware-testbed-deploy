@@ -34,9 +34,12 @@ from utils.osclients import osclients
 import launch_vm
 
 
-
 # Get networks
 def deploy_three_glances():
+    """
+    It deploy three glance services.
+    :return:
+    """
 
     nova = osclients.get_novaclient()
 

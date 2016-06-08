@@ -32,7 +32,6 @@ from settings import settings
 from utils.osclients import osclients
 
 
-
 # Get networks
 def destroy_testbeds():
     """
