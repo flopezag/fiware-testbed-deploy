@@ -3,7 +3,7 @@
 FIWARE Trial Users Management
 =============================
 
-| |License Badge| |StackOverflow| |Build Status| |Coveralls|
+| |License Badge| |Build Status| |Coveralls|
 
 .. contents:: :local:
 
