@@ -50,6 +50,7 @@ def launch_vm(vm_n, flavor_n, securityg_n, image_n, ifaces, user_data=None, keys
 
     nova_c = osclients.get_novaclient()
     flavor = nova_c.flavors.find(name=flavor_n)
+    nova_c.quota
 
     extra_params = dict()
 
