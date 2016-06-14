@@ -33,7 +33,8 @@ class GenerateUser(object):
     """Class to generate users."""
     def __init__(self, user_name, password, tenant_name, role_name):
         """constructor"""
-        endpoint = 'http://{ip}:{port}/v3'.format(ip=os.environ["KEYSTONE_HOST"],
+        print os.environ
+        endpoint = 'http://{ip}:{port}/v3'.format(ip=os.environ["IDENTITY_URI"],
                                                   port=5000)
         self.keystone = client.Client(
             username="idm",
