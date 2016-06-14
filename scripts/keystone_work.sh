@@ -49,7 +49,7 @@ export PYTHONPATH=~/fiware-testbed-deploy
 . config_vars
 . ~/credential
 ./../fiwaretestbeddeploy/register_region.py
-./../fiwaretestbeddeploy/generate_users.py
+./../fiwaretestbeddeploy/create_skuld_users.py
 
 
 # append tenant id of service to configuration file
