@@ -27,6 +27,8 @@ import os
 from keystoneclient.v3 import client
 import datetime
 from utils.osclients import osclients
+from subprocess import Popen, PIPE
+import json
 
 
 class GenerateUser(object):
@@ -34,7 +36,7 @@ class GenerateUser(object):
     def __init__(self, user_name, password, tenant_name, role_name):
         """constructor"""
         print os.environ
-        endpoint = 'http://{ip}:{port}/v3'.format(ip=os.environ["IDENTITY_URI"],
+        endpoint = 'http://{ip}:{port}/v3'.format(ip=self.get_keystone_host(),
                                                   port=5000)
         self.keystone = client.Client(
             username="idm",
@@ -45,6 +47,12 @@ class GenerateUser(object):
         self.password = password
         self.tenant_name = tenant_name
         self.role_name = role_name
+
+    def get_keystone_host(self):
+        p = Popen(["curl", "http://169.254.169.254/openstack/latest/meta_data.json"], stdout=PIPE)
+        metadatajson, err = p.communicate()
+        meta = json.loads(metadatajson)["meta"]
+        return meta["keystone_ip"]
 
     def add_domain_user_role(self, user, role, domain):
         """ It adds a role to a user.
