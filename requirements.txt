@@ -12,5 +12,3 @@ python-neutronclient
 python-novaclient
 -e git+https://github.com/ging/python-keystoneclient.git#egg=python-keystoneclient
 
-requests
-docopt==0.6.1
