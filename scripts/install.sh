@@ -42,6 +42,8 @@ sudo ./install_nova_node.sh
 sudo ./install_neutron_node.sh
 sudo ./install_neutron_compute_node.sh
 
+./../fiwaretestbeddeploy/create_skuld_users.py
+
 
 # Create image, networs and VM
 ./create_resources.sh

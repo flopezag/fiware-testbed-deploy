@@ -22,12 +22,6 @@ Top_
 Description
 ===========
 
-The purpose of these scripts are the recovering of the trial users that are expired,
-free the associated resources and change the user type from trial to basic.
-
-Skuld Testbed
--------------
-
 A set of scripts to create a secure environment for testing is provided. The
 environment is created in a virtual machine using the FIWARE Lab infrastructure.
 The environment variables OS_AUTH_URL, OS_REGION_NAME, OS_USERNAME, OS_PASSWORD

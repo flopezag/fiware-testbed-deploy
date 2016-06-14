@@ -31,6 +31,7 @@ from utils.change_password import PasswordChanger
 from subprocess import Popen, PIPE
 
 from keystoneclient.exceptions import NotFound
+from utils.osclients import osclients
 
 from utils.osclients import OpenStackClients
 

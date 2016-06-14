@@ -28,6 +28,7 @@ from keystoneclient.auth.identity import v2, v3
 from keystoneclient import session
 from keystoneclient.v2_0 import client as keystonev2
 from keystoneclient.v3 import client as keystonev3
+import os
 
 from importlib import import_module
 import sys

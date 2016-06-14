@@ -26,6 +26,7 @@
 import os
 from keystoneclient.v3 import client
 import datetime
+from utils.osclients import osclients
 
 
 class GenerateUser(object):
@@ -33,7 +34,7 @@ class GenerateUser(object):
     def __init__(self, user_name, password, tenant_name, role_name):
         """constructor"""
         endpoint = 'http://{ip}:{port}/v3'.format(ip=os.environ["KEYSTONE_HOST"],
-                                              port=5000)
+                                                  port=5000)
         self.keystone = client.Client(
             username="idm",
             password="idm",
@@ -54,43 +55,23 @@ class GenerateUser(object):
         manager = self.keystone.roles
         return manager.grant(role, user=user, domain=domain)
 
-    def update_to_community(self, user, duration=None):
-        """ It updates the role community to the user.
+    def update_domain_to_role(self, user, role_name, duration=100):
+        """
+        It updates the domain to the role
         :param user: the user
-        :param duration: the duration
+        :param role_name: the role
+        :param duration: the duration for community
         :return:
         """
-        community_role = self.keystone.roles.find(name="community")
+        role = self.keystone.roles.find(name=role_name)
         date = str(datetime.date.today())
 
-        if not duration:
-            duration = 180
-        self.keystone.users.update(user, community_started_at=date, community_duration=duration)
-        self.add_domain_user_role(
-            user=user,
-            role=community_role.id,
-            domain='default')
+        if self.role_name == "community":
+            self.keystone.users.update(user, community_started_at=date, community_duration=duration)
 
-    def update_to_basic(self, user):
-        """ It updates the user to basic
-        :param user: the user
-        :return:
-        """
-        basic_role = self.keystone.roles.find(name="basic")
         self.add_domain_user_role(
             user=user,
-            role=basic_role.id,
-            domain='default')
-
-    def update_to_trial(self, user):
-        """ It updates the role trial to the user.
-        :param user: the user
-        :return:
-        """
-        trial_role = self.keystone.roles.find(name="trial")
-        self.add_domain_user_role(
-            user=user,
-            role=trial_role.id,
+            role=role.id,
             domain='default')
 
     def create_user(self):
@@ -110,15 +91,57 @@ class GenerateUser(object):
                 activation_key=user.activation_key)
             users = self.keystone.users.list(username=self.user_name)
 
-        user = users[0]
+        self.update_domain_to_role(users[0], self.role_name)
+        self.update_quota(users[0], self.role_name)
 
-        if self.role_name == "community":
-            self.update_to_community(user, 100)
-        elif self.role_name == "trial":
-            self.update_to_trial(user)
+    def update_quota(self, user, role):
+        """ It updates the quota for the user according to role requirements
+        :param user: the user
+        :param role: the role
+        :return: nothing
+        """
+        nova_c = osclients.get_novaclient()
+        neutron_c = osclients.get_neutronclient()
+        kargs = self.get_nova_quota(user, role)
+        nova_c.quotas.update(user.cloud_project_id, **kargs)
+        neutron_c.update_quota(user.cloud_project_id, self.get_neutron_quota(role))
+
+    def get_neutron_quota(self, role):
+        """
+        It gets the neutron quota parameters
+        :param role: the user role
+        :return:
+        """
+        if role == 'community':
+            return {"quota": {"subnet": 1, "network": 1, "floatingip": 1,
+                              "security_group_rule": 20, "security_group": 20,
+                              "router": 1, "port": 10}}
+        elif role == 'trial':
+            return {"quota": {"subnet": 0, "network": 0, "floatingip": 1,
+                              "security_group_rule": 10, "security_group": 10,
+                              "router": 0, "port": 10}}
         else:
-            self.update_to_basic(user)
+            return {"quota": {"subnet": 0, "network": 0, "floatingip": 0,
+                              "security_group_rule": 0, "security_group": 0,
+                              "router": 0, "port": 0}}
 
+    def get_nova_quota(self, user, role):
+        """
+        It gest the nova quota parameters
+        :param user: the user
+        :param role: the role
+        :return: nothing
+        """
+
+        if role == 'basic':
+            return {"user_id": user.id, "instances": 0, "ram": 0,
+                    "cores": 0, "floating_ips": 0}
+        elif role == "trial":
+            return {"user_id": user.id, "instances": 3, "ram": 0,
+                    "cores": 0, "floating_ips": 1}
+        else:
+            return {"user_id": user.id, "instances": 5, "ram": 10240,
+                    "cores": 10, "floating_ips": 0}
 
 # If the program receives a parameter, it is interpreted as a file with the
 # JSON to register. Otherwise, it uses default_region_json, replacing the

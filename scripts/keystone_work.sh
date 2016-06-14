@@ -35,7 +35,6 @@ sudo apt-get update
 sudo apt-get install -y pwgen
 
 pip install -r ~/fiware-testbed-deploy/requirements.txt --allow-all-external
-pip install -e git+https://github.com/ging/python-keystoneclient.git#egg=python-keystoneclient
 
 export PYTHONPATH=~/fiware-testbed-deploy
 
@@ -49,7 +48,6 @@ export PYTHONPATH=~/fiware-testbed-deploy
 . config_vars
 . ~/credential
 ./../fiwaretestbeddeploy/register_region.py
-./../fiwaretestbeddeploy/generate_users.py
 
 
 # append tenant id of service to configuration file
