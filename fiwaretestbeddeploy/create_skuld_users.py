@@ -24,12 +24,25 @@
 #
 import generate_users
 
+
+def create_users(role):
+    """
+    It create a set of users with the required role.
+    :param role: the role
+    :return:
+    """
+    vars = [1, 2, 3, 4]
+    for i in vars:
+        create = generate_users.GenerateUser(user_name="{0}_username{1}".format(role, i),
+                                             password="{0}_password{1}".format(role, i),
+                                             tenant_name="{0}_tenantname{1}".format(role, i),
+                                             role_name="role")
+        create.create_user()
+
+
 if __name__ == '__main__':
-    create = generate_users.GenerateUser("community_user", "community_user", "community_user", "community")
-    create.create_user()
-    create = generate_users.GenerateUser("trial_user", "trial_user", "trial_user", "trial")
-    create.create_user()
-    create = generate_users.GenerateUser("basic_user", "basic_user", "basic_user", "basic")
-    create.create_user()
+    create_users("basic")
+    create_users("community")
+    create_users("trial")
     create = generate_users.GenerateUser("test", "test", "test", "community")
     create.create_user()
