@@ -23,6 +23,7 @@
 # Author: Chema
 
 . config_vars
+. ~/skuldenv/bin/activate
 
 neutron net-create ext-net --router:external True --provider:physical_network external --provider:network_type flat
 neutron subnet-create ext-net --name ext-subnet --allocation-pool start=192.168.58.200,end=192.168.58.219  --disable-dhcp --gateway 192.168.58.1 192.168.58.0/24
@@ -55,7 +56,7 @@ nova flavor-create micro2 auto 64 0 1
 nova boot testvm --poll --flavor micro2 --image cirros --nic net-id=$NETID --key-name testkey --security-groups ssh
 
 # add a floating IP
-. ~/skuldenv/bin/activate
+
 TEST_VM="o.nova.servers.find(name='testvm')"
 FLOATING_IP="o.nova.floating_ips.create('ext-net').ip"
 ~/fiware-testbed-deploy/fiwaretestbeddeploy/utils/osclients.py "${TEST_VM}.add_floating_ip(${FLOATING_IP})"

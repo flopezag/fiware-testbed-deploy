@@ -42,7 +42,7 @@ sudo ./install_nova_node.sh
 sudo ./install_neutron_node.sh
 sudo ./install_neutron_compute_node.sh
 
-source /home/ubuntu/skuldenv/bin/activate
+. ~/skuldenv/bin/activate
 source /home/ubuntu/credential
 ./../fiwaretestbeddeploy/create_skuld_users.py
 
