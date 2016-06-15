@@ -34,7 +34,7 @@ neutron router-interface-add shared-router shared-subnet
 neutron router-gateway-set shared-router ext-net
 
 wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
-glance image-create --name cirros --container bare --file cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --is-public True
+glance image-create --name cirros --container bare --file cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --visibility true
 NETID=$(neutron net-list |awk '/shared-net/ { print $2 }')
 export OS_AUTH_URL=$OS_AUTH_URL_V2
 
