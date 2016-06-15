@@ -36,7 +36,7 @@ neutron router-gateway-set shared-router ext-net
 wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
 glance image-create --name cirros --container bare --file cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --visibility public
 NETID=$(neutron net-list |awk '/shared-net/ { print $2 }')
-export OS_AUTH_URL=$OS_AUTH_URL_V2
+
 
 # create a keypair and copy the private key in ~/.ssh with the right
 # permission.
