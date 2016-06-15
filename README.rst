@@ -3,7 +3,7 @@
 FIWARE Trial Users Management
 =============================
 
-| License Badge| |Build Status| |Coveralls|
+|License Badge| |Build Status| |Coveralls|
 
 .. contents:: :local:
 
@@ -93,7 +93,7 @@ Build and Install
 =================
 
 Requirements
-------------
+************
 
 - This scripts has been tested on a Debian 7 system, but any other recent Linux
   distribution with the software described should work
@@ -106,7 +106,7 @@ or with yum in CentOS):
 - virtualenv
 
 Installation
-------------
+************
 
 The recommend installation method is using a virtualenv. Actually, the installation
 process is only about the python dependencies, because the scripts do not need
