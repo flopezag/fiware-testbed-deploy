@@ -36,7 +36,7 @@ def create_users(role):
         create = generate_users.GenerateUser(user_name="{0}_username{1}".format(role, i),
                                              password="{0}_password{1}".format(role, i),
                                              tenant_name="{0}_tenantname{1}".format(role, i),
-                                             role_name="role")
+                                             role_name=role)
         create.create_user()
 
 
