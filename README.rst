@@ -91,12 +91,11 @@ but with barely free space)
 Deploying three testbeds
 ************************
 
-The *deploythreeglances.py* script deploys three Openstack Image Repository service (Glance) which
-shares the same keystone. Each glance is deploy in a different VMs accesible by floating IPs.
-As well as previoly, it is possible to access by SSH Key at *~/.ssh/testbedskuld_key*). Usually the installation
-process lasts between 10 and 20 minutes. The job is finished after the file
-*config_vars* is copied into the */home/ubuntu* folder inside the virtual machines.
-This three glance testbed is used for GlanceSync tests.
+The *deploythreeglances.py* script deploys three Openstack Image Repositories (Glance) which
+shares the same Identity Service called Keystone. Each glance is deployed in a different server accesible by a
+floating IP. As well as previously, it is possible to access by SSH Key and its configuration
+variables are in the file *config_vars* in */home/ubuntu* folder inside the server.
+These three Glances testbed is used for GlanceSync acceptance tests.
 
 
 Build and Install
@@ -134,8 +133,7 @@ Execution with dockers
 Several dockers have been created to deploy the installation of one testbed or three
 glances. Even a docker for undeploying the testbed has been created.
 
-To create just one testbed, it is required, firstly to create the image and then to execute
-docker-compose for runnning it
+To create just one testbed, the following commands are needed:
 
 ..code::
     docker run -t deploy_one_testbed -f docker/onetestbed/Dockerfile docker/onetestbed
