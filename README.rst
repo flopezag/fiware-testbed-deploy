@@ -91,7 +91,7 @@ but with barely free space)
 Deploying three testbeds
 ************************
 
-The *deploythreeglances.py*script deploys 3 OpenStack Image Repositories (Glance) which share the same
+The *deploythreeglances.py* script deploys 3 OpenStack Image Repositories (Glance) which share the same
 Identity Service called Keystone. Each glance is deployed on a different server accessible by a floating IP.
 It is possible to access by SSH Key and its configuration variables are in the file config_vars in
 /home/ubuntu folder inside the server, in the same way that it was explained in "Deploying one testbed"
