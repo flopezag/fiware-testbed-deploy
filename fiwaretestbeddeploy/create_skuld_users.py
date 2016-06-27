@@ -45,5 +45,5 @@ if __name__ == '__main__':
     create_users("community")
     create_users("trial")
     create = generate_users.GenerateUser("test", "test", "test", "community")
-    create = generate_users.GenerateUser("qa", "qa", "qa")
+    create = generate_users.GenerateUser("qa", "qa", "qa", "admin")
     create.create_user()
