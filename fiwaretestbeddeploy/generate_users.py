@@ -33,10 +33,10 @@ import json
 
 class GenerateUser(object):
     """Class to generate users."""
-    def __init__(self, user_name, password, tenant_name, role_name):
+    def __init__(self, user_name, password, tenant_name, role_name=None):
         """constructor"""
-        print os.environ
-        endpoint = 'http://{ip}:{port}/v3'.format(ip=self.get_keystone_host(),
+        keystone_ip = self.get_keystone_host()
+        endpoint = 'http://{ip}:{port}/v3'.format(ip=keystone_ip,
                                                   port=5000)
         self.keystone = client.Client(
             username="idm",
@@ -73,10 +73,15 @@ class GenerateUser(object):
         :return:
         """
         role = self.keystone.roles.find(name=role_name)
-        date = str(datetime.date.today())
+
+        date_out = str(datetime.date.today() - datetime.timedelta(days=30))
+        date_out_2 = str(datetime.date.today() - datetime.timedelta(days=180))
 
         if self.role_name == "community":
-            self.keystone.users.update(user, community_started_at=date, community_duration=duration)
+            self.keystone.users.update(user, community_started_at=date_out_2, community_duration=duration)
+
+        if self.role_name == "trial":
+            self.keystone.users.update(user, trial_started_at=date_out)
 
         self.add_domain_user_role(
             user=user,
@@ -100,8 +105,9 @@ class GenerateUser(object):
                 activation_key=user.activation_key)
             users = self.keystone.users.list(username=self.user_name)
 
-        self.update_domain_to_role(users[0], self.role_name)
-        self.update_quota(users[0], self.role_name)
+        if self.role_name:
+            self.update_domain_to_role(users[0], self.role_name)
+            self.update_quota(users[0], self.role_name)
 
     def update_quota(self, user, role):
         """ It updates the quota for the user according to role requirements

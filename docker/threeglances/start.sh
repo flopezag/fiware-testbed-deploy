@@ -117,4 +117,4 @@ openstack user create qa --password qa --project qa
 openstack role add --user qa --project qa admin
 openstack project list
 openstack user list
-
+sleep 12000

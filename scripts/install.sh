@@ -31,6 +31,7 @@ echo alias nova=\'env OS_AUTH_URL=\$OS_AUTH_URL_V2 nova\' > ~/.bash_aliases
 ./keystone_work.sh
 
 # install controller (this might be run in another node)
+
 sudo ./prepare_controller.sh
 sudo ./install_glance.sh
 sudo ./install_nova_controller.sh

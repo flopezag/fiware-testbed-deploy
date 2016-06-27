@@ -33,5 +33,10 @@ echo alias nova=\'env OS_AUTH_URL=\$OS_AUTH_URL_V2 nova\' > ~/.bash_aliases
 # install controller (this might be run in another node)
 sudo ./prepare_controller.sh
 sudo ./install_glance.sh
+sudo ./install_nova_controller.sh
+
+. ~/skuldenv/bin/activate
+source /home/ubuntu/credential
+./../fiwaretestbeddeploy/create_skuld_users.py
 
 

@@ -7,7 +7,6 @@ RUN git clone https://github.com/telefonicaid/fiware-testbed-deploy/ /home/ubunt
 WORKDIR /home/ubuntu/fiware-testbed-deploy/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-RUN pip install python-openstackclient
 RUN mkdir /root/.ssh
 COPY start.sh /home/ubuntu/fiware-testbed-deploy/start.sh
 CMD ./start.sh

@@ -68,7 +68,7 @@ def launch_vm(vm_n, flavor_n, securityg_n, image_n, ifaces, user_data=None, keys
 
     # wait until the vm is active
     tries = 1
-    while server.status != 'ACTIVE' and tries < 30:
+    while server.status != 'ACTIVE' and tries < 40:
         print('Waiting for ACTIVE status. (Try ' + str(tries) + '/30)')
         time.sleep(5)
         try:
@@ -287,5 +287,5 @@ def deploy_testbed():
                   region_keystone)
 
 if __name__ == "__main__":
-    os.environ["OS_AUTH_URL"] = "http://cloud.lab.fiware."
+    os.environ["OS_AUTH_URL"] = "http://cloud.lab.fiware.org"
     deploy_testbed()
