@@ -34,6 +34,7 @@ echo alias nova=\'env OS_AUTH_URL=\$OS_AUTH_URL_V2 nova\' > ~/.bash_aliases
 sudo ./prepare_controller.sh
 sudo ./install_glance.sh
 sudo ./install_nova_controller.sh
+sudo ./install_neutron_controller.sh
 
 . ~/skuldenv/bin/activate
 source /home/ubuntu/credential
