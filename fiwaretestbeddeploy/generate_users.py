@@ -35,7 +35,7 @@ class GenerateUser(object):
     """Class to generate users."""
     def __init__(self, user_name, password, tenant_name, role_name=None):
         """constructor"""
-        keystone_ip = "130.206.118.206"
+        keystone_ip = self.get_keystone_host()
         endpoint = 'http://{ip}:{port}/v3'.format(ip=keystone_ip,
                                                   port=5000)
         self.keystone = client.Client(
