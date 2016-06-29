@@ -11,4 +11,5 @@ RUN wget --no-check-certificate http://pypi.python.org/packages/source/d/distrib
 RUN tar xf distribute-0.6.35.tar.gz
 RUN cd distribute-0.6.35;python2.7 setup.py install
 RUN easy_install-2.7 pip
-RUN pip2.7 install setuptools --upgrade
+RUN pip2.7 install --upgrade setuptools
+RUN pip2.7 install --upgrade distribute
