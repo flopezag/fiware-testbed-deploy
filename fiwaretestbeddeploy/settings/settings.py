@@ -22,7 +22,7 @@
 # contact with opensource@tid.es
 #
 __author__ = 'chema'
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 key_name = 'testbedskuld_key'
 security_group = 'testbedskuld_sg'
 # Use this IP if it is available.
