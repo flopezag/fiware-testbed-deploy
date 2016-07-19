@@ -77,20 +77,6 @@ default_region_json = """
             "internal": "http://$CONTROLLER:8774/v2/%(tenant_id)s"
         },
         {
-            "name": "cinder",
-            "type": "volume",
-            "public": "http://$PUBLIC_CONTROLLER:8776/v1/%(tenant_id)s",
-            "admin": "http://$CONTROLLER:8776/v1/%(tenant_id)s",
-            "internal": "http://$CONTROLLER:8776/v1/%(tenant_id)s"
-        },
-        {
-            "name": "cinderv2",
-            "type": "volumev2",
-            "public": "http://$PUBLIC_CONTROLLER:8776/v2/%(tenant_id)s",
-            "admin": "http://$CONTROLLER:8776/v2/%(tenant_id)s",
-            "internal": "http://$CONTROLLER:8776/v2/%(tenant_id)s"
-        },
-        {
             "name": "neutron",
             "type": "network",
             "public": "http://$PUBLIC_CONTROLLER:9696",
@@ -103,13 +89,6 @@ default_region_json = """
             "public": "http://$PUBLIC_CONTROLLER:9696",
             "admin": "http://$CONTROLLER:9696",
             "internal": "http://$CONTROLLER:9696"
-        },
-        {
-            "name": "swift",
-            "type": "object-store",
-            "public": "http://$PUBLIC_CONTROLLER:8080/v1/AUTH_%(tenant_id)s",
-            "admin": "http://$CONTROLLER:8080/v1/AUTH_%(tenant_id)s",
-            "internal": "http://$CONTROLLER:8080/v1/AUTH_%(tenant_id)s"
         },
         {
             "name": "keystone$REGION",
