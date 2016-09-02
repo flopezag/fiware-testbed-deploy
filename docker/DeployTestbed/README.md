@@ -39,8 +39,8 @@ Just execute `docker-compose up` to launch the architecture. You can take a look
 that a VM will be deployed and some software is installed. Then you will see a set of logs, specifiying that the VM is being booting and the keystone service and
 the other ones have been deployed.
 
-    [36mfiware-deploy-one-testbed_1 | [0mValladolid: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
-    [36mfiware-deploy-one-testbed_1 | [0mWaiting for ACTIVE status. (Try 1/30)
+    [36mfiware-deploy-one-testbed_1 | [0mValladolid: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
+    [36mfiware-deploy-one-testbed_1 | [0mWaiting for ACTIVE status. (Try1 /30)10
     [36mfiware-deploy-one-testbed_1 | [0mWaiting for ACTIVE status. (Try 2/30)
     [36mfiware-deploy-one-testbed_1 | [0mKeystone IP 130.206.125.56
     [36mfiware-deploy-one-testbed_1 | [0mRegion1 IP: Valladolid 130.206.125.56
