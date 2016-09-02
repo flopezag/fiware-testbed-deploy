@@ -4,7 +4,7 @@ A set of scripts to undeploy a testbed previoly created is provided. The
 environment mainly undeploy the virtual machine already deployed using a Cloud infrastructure.
 
 ## 1. Generating docker image
-Docker allows you to deploy an fiware-testbed-undeploy container, which undeploys the VM already deployed in a few minutes.
+Docker allows you to deploy an fiware-undeploy-testbed container, which undeploys the VM already deployed in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
@@ -33,8 +33,9 @@ Now is time to execute the container.  Previously you should configure a set var
     export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the VM>
     export Region1=<the name for the region of the Cloud to be deployed>
 
-To run the containair just execute:
-    docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 fiware-undeploy-testbed
+To run the container just execute:
+
+    docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME fiware-undeploy-testbed
 
 ## 3. Running with the docker-compose
  This time, we take advantage of the docker compose.  Previously you should configure a set variables with the
@@ -54,10 +55,10 @@ that a VM will be undeployed.
 ----
 ## 4. Other info
 
-Things to keep in mind while working with docker containers and Skuld.
+Things to keep in mind while working with docker containers and fiware-testbed-deploy.
 
 ### 4.1 Data persistence
-Everything you do with Skuld when dockerized is non-persistent. *You will lose all your data* if you turn off the Skuld container. This will happen with either method presented in this README.
+Everything you do with fiware-testbed-deploy when dockerized is non-persistent. *You will lose all your data* if you turn off the fiware-testbed-deploy container. This will happen with either method presented in this README.
 
 ### 4.2 Using `sudo`
 
