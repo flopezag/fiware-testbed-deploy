@@ -1,5 +1,5 @@
 deploy_one_testbed:
-  image: deploy_one_testbed
+  image: fiware-deploy-one-testbed
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME
