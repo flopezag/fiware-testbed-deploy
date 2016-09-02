@@ -128,53 +128,6 @@ installation.
 
 Now the system is ready to use. For future sessions, only the step2 is required.
 
-Execution with dockers
-**********************
-Several dockers have been created to deploy the installation of one testbed or three
-glances. Even a docker for undeploying the testbed has been created.
-
-To create just one testbed, the following commands are needed:
-
-..code::
-    docker run -t deploy_one_testbed -f docker/onetestbed/Dockerfile docker/onetestbed
-    export OS_AUTH_URL = {the auth uri of the testbed against the tests are going to be execute}
-    export OS_USERNAME = {the user name}
-    export OS_TENANT_NAME = {the tenant name}
-    export OS_PASSWORD = {the password}
-    export OS_REGION_NAME = {the region}
-    export OS_PROJECT_DOMAIN_NAME = {the project domain name}
-    export OS_USER_DOMAIN_NAME = {the user domain name}
-    export Region1 = {The region name for the deployed testbed}
-    export BOOKED_IP = {The floating Ip for the keystone}
-    docker-compose -f docker/onetestbed/docker-compose.yml up
-
-In case, we want to deploy the three glance testbeds, it is required:
-..code::
-    docker run -t deploy-three-glances -f docker/threeglances/Dockerfile docker/threeglances/
-    export OS_AUTH_URL = {the auth uri of the testbed against the tests are going to be execute}
-    export OS_USERNAME = {the user name}
-    export OS_TENANT_NAME = {the tenant name}
-    export OS_PASSWORD = {the password}
-    export OS_REGION_NAME = {the region}
-    export OS_PROJECT_DOMAIN_NAME = {the project domain name}
-    export OS_USER_DOMAIN_NAME = {the user domain name}
-    export Region1 = {The region name for the first deployed testbed}
-    export Region2 = {The region name for the second deployed testbed}
-    export Region3 = {The region name for the third deployed testbed}
-    export BOOKED_IP = {The floating Ip for the keystone}
-    docker-compose -f docker/threeglances/docker-compose.yml up
-
-And finally, when we want to undeploy the testbeds:
-..code::
-    docker run -t delete_testbed -f docker/destroy_testbed/Dockerfile docker/destroy_testbed/
-    export OS_AUTH_URL = {the auth uri of the testbed against the tests are going to be execute}
-    export OS_USERNAME = {the user name}
-    export OS_TENANT_NAME = {the tenant name}
-    export OS_PASSWORD = {the password}
-    export OS_REGION_NAME = {the region}
-    export OS_PROJECT_DOMAIN_NAME = {the project domain name}
-    export OS_USER_DOMAIN_NAME = {the user domain name}
-    docker-compose -f docker/destroy_testbed/docker-compose.yml up
 
 
 License
