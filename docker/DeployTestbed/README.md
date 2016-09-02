@@ -7,6 +7,7 @@ instance where the original keystone server was replaced with the KeyRock server
 This is work in progress; the current version only installs Glance, Nova and Neutron,
 but skuld also purges Swift, Cinder and Blueprint resources.
 
+----
 ## 1. Generating docker image
 Docker allows you to deploy an fiware-deploy-one-testbed container, which deploys a VM with a Cloud infrastructure in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
@@ -19,11 +20,11 @@ Then, you just need to create a new docker image executing `docker build -t fiwa
 
 To see that the image is created run `docker images` and you see something like this:
 
-    REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+    REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
     fiware-deploy-one-testbed   latest              103464a8ede0        30 seconds ago      551.3 MB
 
 
-
+----
 ## 2. Running docker image
 Now is time to execute the container.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
@@ -42,7 +43,7 @@ To run the container just execute:
 
     docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 fiware-deploy-one-testbed
 
-
+----
 ## 3. Running with docker-compose
  This time, we take advantage of the docker compose.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:

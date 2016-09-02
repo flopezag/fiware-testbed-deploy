@@ -13,7 +13,7 @@ Then, you just need to create a new docker image executing `docker build -t fiwa
 
 To see that the image is created run `docker images` and you see something like this:
 
-    REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+    REPOSITORY     TAG                 IMAGE ID            CREATED             SIZE
     fiwarecentos   latest              103464a8ede0        30 seconds ago      551.3 MB
 
 

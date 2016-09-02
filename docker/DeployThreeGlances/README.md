@@ -19,7 +19,7 @@ Then, you just need to create a new docker image executing `docker build -t fiwa
 
 To see that the image is created run `docker images` and you see something like this:
 
-    REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
     fiware-three-glances-deploy   latest              103464a8ede0        30 seconds ago      551.3 MB
 
 ----
@@ -44,7 +44,7 @@ To run the container just execute:
     docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 -e Region2=$Region2 -e Region3=$Region3 fiware-three-glances-deploy
 
 ----
-## 3. Running with the docker-compose
+## 3. Running with docker-compose
  This time, we take advantage of the docker compose.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
 
