@@ -7,10 +7,12 @@ instance where the original keystone server was replaced with the KeyRock server
 This is work in progress; the current version only installs Glance, Nova and Neutron,
 but skuld also purges Swift, Cinder and Blueprint resources.
 
+## 1. Using docker for fiware-testbed-deploy
 Docker allows you to deploy an fiware-testbed-deploy container, which deploys a VM with a Cloud infrastructure in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
-1. Download [Skuld' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
-2. `cd fiware-testbed-deploy/docker/DeployTestbed`
+
+  1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
+  2. `cd fiware-testbed-deploy/docker/DeployTestbed`
 
 Then, you just need to create a new docker image executing `docker build -t fiware-deploy-one-testbed -f Dockerfile .`. Please keep in mind that if you do not change the name of the image
  it will automatically update an existing one.
@@ -34,27 +36,27 @@ Now is time to execute the container. This time, we take advantage of the docker
     export Region1=<the name for the region of the Cloud to be deployed>
 
 Just execute `docker-compose up` to launch the architecture. You can take a look to the log generated executing `docker-compose logs`. You will see
-that a VM will be deployed and some software is installed. Then you will see a set of logs, specifiying that the VM is being booting and that keystone and
-all the services in Openstack have been deployed.
+that a VM will be deployed and some software is installed. Then you will see a set of logs, specifiying that the VM is being booting and the keystone service and
+the other ones have been deployed.
 
-   [36mdeploy_one_testbed_1 | [0mValladolid: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
-   [36mdeploy_one_testbed_1 | [0mWaiting for ACTIVE status. (Try 1/30)
-   [36mdeploy_one_testbed_1 | [0mWaiting for ACTIVE status. (Try 2/30)
-   [36mdeploy_one_testbed_1 | [0mKeystone IP 130.206.125.56
-   [36mdeploy_one_testbed_1 | [0mRegion1 IP: Valladolid 130.206.125.56
-   [36mdeploy_one_testbed_1 | [0mAssigning floating IP 130.206.125.56
-   [36mdeploy_one_testbed_1 | [0mwaiting for keystone
-   [36mdeploy_one_testbed_1 | [0mwaiting for testbed one
+    [36mfiware-deploy-one-testbed_1 | [0mValladolid: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
+    [36mfiware-deploy-one-testbed_1 | [0mWaiting for ACTIVE status. (Try 1/30)
+    [36mfiware-deploy-one-testbed_1 | [0mWaiting for ACTIVE status. (Try 2/30)
+    [36mfiware-deploy-one-testbed_1 | [0mKeystone IP 130.206.125.56
+    [36mfiware-deploy-one-testbed_1 | [0mRegion1 IP: Valladolid 130.206.125.56
+    [36mfiware-deploy-one-testbed_1 | [0mAssigning floating IP 130.206.125.56
+    [36mfiware-deploy-one-testbed_1 | [0mwaiting for keystone
+    [36mfiware-deploy-one-testbed_1 | [0mwaiting for testbed one
 
 ----
-## 4. Other info
+## 3. Other info
 
 Things to keep in mind while working with docker containers and Skuld.
 
-### 4.1 Data persistence
+### 3.1 Data persistence
 Everything you do with Skuld when dockerized is non-persistent. *You will lose all your data* if you turn off the Skuld container. This will happen with either method presented in this README.
 
-### 4.2 Using `sudo`
+### 3.2 Using `sudo`
 
 If you do not want to have to use `sudo` follow [these instructions](http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo).
 
