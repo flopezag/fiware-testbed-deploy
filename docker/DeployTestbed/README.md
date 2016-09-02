@@ -23,6 +23,7 @@ To see that the image is created run `docker images` and you see something like 
     fiware-deploy-one-testbed   latest              103464a8ede0        30 seconds ago      551.3 MB
 
 
+
 ## 2. Running docker image
 Now is time to execute the container.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
@@ -41,7 +42,8 @@ To run the container just execute:
 
     docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 fiware-deploy-one-testbed
 
-## 3. Running with the docker-compose
+
+## 3. Running with docker-compose
  This time, we take advantage of the docker compose.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
 

@@ -6,6 +6,7 @@ The installation of the testbed is fully automatized and consists on three OpenS
 instances which share the same keystone (in this case the original keystone server was replaced with the KeyRock server).
 This version only installs Glance in addition to Keystone..
 
+----
 ## 1. Generating docker image
 Docker allows you to deploy an fiware-three-glances-deploy container, which deploys the environment composed by the 3 virtual machines with a Cloud infrastructure in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
@@ -21,7 +22,7 @@ To see that the image is created run `docker images` and you see something like 
     REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
     fiware-three-glances-deploy   latest              103464a8ede0        30 seconds ago      551.3 MB
 
-
+----
 ## 2. Running docker image
 Now is time to execute the container.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
@@ -42,6 +43,7 @@ To run the container just execute:
 
     docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 -e Region2=$Region2 -e Region3=$Region3 fiware-three-glances-deploy
 
+----
 ## 3. Running with the docker-compose
  This time, we take advantage of the docker compose.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
@@ -62,14 +64,24 @@ Just execute `docker-compose up` to launch the architecture. You can take a look
 that a VM will be deployed and some software is installed. Then you will see a set of logs, specifiying that the VM is being booting and the keystone service and
 the other ones have been deployed.
 
-    Valladolid: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
-    Waiting for ACTIVE status. (Try1 /30)
+    Keystone IP 130.206.118.206
+    Region1 IP: Valladolid 130.206.118.206
+    Valladolid: VM with UUID 7218898d-7d83-4fc7-842a-1368d28ea9c5
+    Waiting for ACTIVE status. (Try 1/30)
     Waiting for ACTIVE status. (Try 2/30)
-    Keystone IP 130.206.125.56
-    Region1 IP: Valladolid 130.206.125.56
-    Assigning floating IP 130.206.125.56
+    Assigning floating IP 130.206.118.206
+    Region2 IP: Burgos 130.206.118.205
+    Burgos: VM with UUID 86e66843-58f6-4626-8f1b-c6de3cd36bb7
+    Waiting for ACTIVE status. (Try 1/30)
+    Assigning floating IP 130.206.118.205
+    Region3 IP: Caceres 130.206.118.207
+    Caceres: VM with UUID 707851fc-fed8-44c2-b18e-3946d8080f4f
+    Waiting for ACTIVE status. (Try 1/30)
+    Assigning floating IP 130.206.118.207
     waiting for keystone
     waiting for testbed one
+    waiting for testbed two
+    waiting for testbed three
 
 ----
 ## 4. Other info

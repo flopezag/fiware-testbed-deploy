@@ -3,6 +3,7 @@
 A set of scripts to undeploy a testbed previoly created is provided. The
 environment mainly undeploy the virtual machine already deployed using a Cloud infrastructure.
 
+----
 ## 1. Generating docker image
 Docker allows you to deploy an fiware-undeploy-testbed container, which undeploys the VM already deployed in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
@@ -18,7 +19,7 @@ To see that the image is created run `docker images` and you see something like 
     REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
     fiware-undeploy-testbed    latest              103464a8ede0        30 seconds ago      551.3 MB
 
-
+----
 ## 2. Running docker image
 Now is time to execute the container.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
@@ -37,7 +38,8 @@ To run the container just execute:
 
     docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME fiware-undeploy-testbed
 
-## 3. Running with the docker-compose
+----
+## 3. Running with docker-compose
  This time, we take advantage of the docker compose.  Previously you should configure a set variables with the
  FIWARE Lab (or a Cloud) credentials. You have to define the following environment variables:
 
