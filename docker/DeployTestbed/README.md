@@ -9,7 +9,7 @@ but skuld also purges Swift, Cinder and Blueprint resources.
 
 ----
 ## 1. Generating docker image
-Docker allows you to deploy an fiware-deploy-one-testbed container, which deploys a VM with a Cloud infrastructure in a few minutes.
+Docker allows you to deploy a fiware-deploy-one-testbed container, which deploys a VM with a Cloud infrastructure in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)

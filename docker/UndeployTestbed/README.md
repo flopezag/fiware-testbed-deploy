@@ -5,7 +5,7 @@ environment mainly undeploy the virtual machine already deployed using a Cloud i
 
 ----
 ## 1. Generating docker image
-Docker allows you to deploy an fiware-undeploy-testbed container, which undeploys the VM already deployed in a few minutes.
+Docker allows you to deploy a fiware-undeploy-testbed container, which undeploys the VM already deployed in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)

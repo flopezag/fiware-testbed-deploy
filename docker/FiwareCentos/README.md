@@ -3,7 +3,7 @@
 It includes the deployment of a CentOS 6 image with some FIWARE features, like Python 7.
 
 ## 1. Generating docker image
-Docker allows you to deploy an fiwarecentos container.
+Docker allows you to deploy a fiwarecentos container.
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
   2. `cd fiware-testbed-deploy/docker/FiwareCentos`

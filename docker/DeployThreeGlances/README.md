@@ -8,7 +8,7 @@ This version only installs Glance in addition to Keystone..
 
 ----
 ## 1. Generating docker image
-Docker allows you to deploy an fiware-three-glances-deploy container, which deploys the environment composed by the 3 virtual machines with a Cloud infrastructure in a few minutes.
+Docker allows you to deploy a fiware-three-glances-deploy container, which deploys the environment composed by the 3 virtual machines with a Cloud infrastructure in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
