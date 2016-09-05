@@ -1,5 +1,5 @@
-fiware-skuld-phomehome:
-  image: fiware-skuld-phonehome
+delete_testbed:
+  image: fiware-undeploy-testbed
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME
@@ -8,5 +8,4 @@ fiware-skuld-phomehome:
    - OS_REGION_NAME
    - OS_PROJECT_DOMAIN_NAME
    - OS_USER_DOMAIN_NAME
-   - BOOKED_IP
-   - Region1
+
