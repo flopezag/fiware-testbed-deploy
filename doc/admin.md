@@ -34,7 +34,18 @@ installation.
 ## Running FIWARE testbed deploy
 
 ### Deploying one testbed
+To deploy just a testsbed, it is required just execute one script. However some variables should be exported before.
+    export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
+    export OS_USERNAME=<a user with an account in the Cloud>
+    export OS_TENANT_NAME=<a project name from the account in the Cloud>
+    export OS_PASSWORD=<the password for an account in the Cloud>
+    export OS_REGION_NAME=<the region name>
+    export OS_USER_DOMAIN_NAME=<OpenStack user domain name>
+    export OS_PROJECT_DOMAIN_NAME=<OpenStack project domain name>
+    export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the VM>
+    export Region1=<the name for the region of the Cloud to be deployed>
 
+    fiwaretestbeddeploy/launch_vm.py
 
 The *launch_vm.py* ends in a few seconds, showing the floating IP. Although it is
 already possible to connect to the ubuntu account of the server (using the
@@ -71,6 +82,20 @@ same, but with 0GB of disk (i.e. a minimal disk to boot the image is created
 but with barely free space)
 
 ### Deploying three testbeds
+To deploy just a testsbed, it is required just execute one script. However some variables should be exported before.
+    export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
+    export OS_USERNAME=<a user with an account in the Cloud>
+    export OS_TENANT_NAME=<a project name from the account in the Cloud>
+    export OS_PASSWORD=<the password for an account in the Cloud>
+    export OS_REGION_NAME=<the region name>
+    export OS_USER_DOMAIN_NAME=<OpenStack user domain name>
+    export OS_PROJECT_DOMAIN_NAME=<OpenStack project domain name>
+    export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the keystone VM>
+    export Region1=<the name for the first region of the Cloud to be deployed>
+    export Region2=<the name for the second region of the Cloud to be deployed>
+    export Region3=<the name for the third region of the Cloud to be deployed>
+
+    fiwaretestbeddeploy/deploythreeglances.py
 
 The *deploythreeglances.py* script deploys 3 OpenStack Image Repositories (Glance) which share the same
 Identity Service called Keystone. Each glance is deployed on a different server accessible by a floating IP.
