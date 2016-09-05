@@ -1,1 +1,1 @@
-../docker/DeployTestbed/README.md
+../docker/onetestbed/README.md
