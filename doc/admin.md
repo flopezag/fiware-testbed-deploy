@@ -105,3 +105,84 @@ Identity Service called Keystone. Each glance is deployed on a different server 
 It is possible to access by SSH Key and its configuration variables are in the file config_vars in
 /home/ubuntu folder inside the server, in the same way that it was explained in "Deploying one testbed"
 section. These 3 Glance testbeds are used for GlanceSync acceptance tests.
+
+## Sanity check procedures
+
+The Sanity Check Procedures are the steps that a System Administrator
+will take to verify that an installation is ready to be tested. This is
+therefore a preliminary set of tests to ensure that obvious or basic
+malfunctioning is fixed before proceeding to unit tests, integration
+tests and user validation.
+
+### End to End testing
+
+As fiware-testbed-deploy is composed by a set of scripts without any API, there
+is not a simple way to do an end-to-end testing. If we want to test, we should execute
+one of the scripts, for instance *launch_vm.py*, which deploys a VM and installs an entire
+Opentack.
+
+To do that, just export these set of variables:
+    export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
+    export OS_USERNAME=<a user with an account in the Cloud>
+    export OS_TENANT_NAME=<a project name from the account in the Cloud>
+    export OS_PASSWORD=<the password for an account in the Cloud>
+    export OS_REGION_NAME=<the region name>
+    export OS_USER_DOMAIN_NAME=<OpenStack user domain name>
+    export OS_PROJECT_DOMAIN_NAME=<OpenStack project domain name>
+    export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the VM>
+    export Region1=<the name for the region of the Cloud to be deployed>
+
+And execute:
+    fiwaretestbeddeploy/launch_vm.py
+
+In everything works correctly, you will obtain a set of logs like that:
+
+    RegionOne: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
+    Waiting for ACTIVE status. (Try1 /30)
+    Waiting for ACTIVE status. (Try 2/30)
+    Keystone IP 130.206.125.56
+    Region1 IP: RegionOne 130.206.125.56
+    Assigning floating IP 130.206.125.56
+    waiting for keystone
+    waiting for testbed one
+
+### List of Running Processes
+
+Due that fiware-testbed-deploy is a set of scripts without any software dependence, there is not any process running needed.
+
+### Network interfaces Up & Open
+
+There is not any server running.
+
+### Databases
+
+No database is required.
+
+## Diagnosis Procedures
+
+The Diagnosis Procedures are the first steps that a System Administrator
+will take to locate the source of an error in a GE. Once the nature of
+the error is identified with these tests, the system admin will very
+often have to resort to more concrete and specific testing to pinpoint
+the exact point of error and a possible solution. Such specific testing
+is out of the scope of this section.
+
+### Resource availability
+
+The resource availability in the node should be at least 2Gb of RAM and
+8GB of Hard disk in order to prevent enabler’s bad performance in both
+nodes. This means that bellow these thresholds the enabler is likely to
+experience problems or bad performance.
+
+###  Remote Service Access
+
+There is not a remote service access for the component.
+
+### Resource consumption
+
+No issues related to resources consumption have been detected.
+
+
+### I/O flows
+
+No applied.
