@@ -128,7 +128,10 @@ installation.
 
 Now the system is ready to use. For future sessions, only the step2 is required.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0124b5f2ca37fbc2623a1713613fae7a0063ba9a
 
 License
 =======

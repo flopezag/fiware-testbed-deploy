@@ -1,5 +1,5 @@
-deploy_one_testbed:
-  image: deploy_one_testbed
+deploy-three-glances:
+  image: fiware-three-glances-deploy
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME
@@ -8,5 +8,8 @@ deploy_one_testbed:
    - OS_REGION_NAME
    - OS_PROJECT_DOMAIN_NAME
    - OS_USER_DOMAIN_NAME
-   - BOOKED_IP
+   - BOOKED_IP1
+   - BOOKED_IP2
    - Region1
+   - Region2
+   - Region3
