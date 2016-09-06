@@ -39,10 +39,8 @@ instance where the original keystone server was replaced with the KeyRock server
 This is work in progress; the current version only installs Glance, Nova and Neutron,
 but skuld also purges Swift, Cinder and Blueprint resources.
 
-To install, it is only necessary to configure the same virtualenv than for
-running skuld, set PYTHONPATH with the path of the project, and invoke
-the script *./tests/install_testbed/launch_vm.py*.
-
+### Deploying one testbed
+By using a fiware-testbed-deploy script (*launch_vm.py*), it is possible to deploy an entire Openstack testbed.
 The script uses a floating IP and creates both a keypair (it saves the SSH private key as
 ~/.ssh/testbedskuld_key) and a security group. The security group opens
 the port 22 (SSH) and allows the ICMP traffic. It is also possible to connect
@@ -54,11 +52,7 @@ ignore this file securely. However, to use the script in a different platform
 than FIWARE Lab, probably is necessary to change the parameter about the
 public shared network name.
 
-### Deploying one testbed
-
-The *launch_vm.py* ends in a few seconds, showing the floating IP. Although it is
-already possible to connect to the ubuntu account of the server (using the
-SSH key at *~/.ssh/testbedskuld_key*), the installation is still running
+Although it is already possible to connect to the ubuntu account of the server, the installation is still running
 inside the VM and needs a few minutes to complete. Usually the installation
 process lasts between 10 and 20 minutes. The job is finished after the file
 *config_vars* is copied into the */home/ubuntu* folder inside the virtual machine.
@@ -99,8 +93,11 @@ It is possible to access by SSH Key and its configuration variables are in the f
 section. These 3 Glance testbeds are used for GlanceSync acceptance tests.
 
 ### Undeploy testbed
+The *destroytestbeds.py* script undeploys an Openstack testbed belonging to the user specified in the environment variables.
 
 ### Deploy phonehome
+The script *launch_vm_phonehome* deploys a VM in a Cloud infrastructure, with all the security groups rules and software required
+to execute the phone home.
 
 [Top](#top)
 
@@ -123,30 +120,13 @@ The recommend installation method is using a virtualenv. Actually, the installat
 process is only about the python dependencies, because the scripts do not need
 installation.
 
-1) Create a virtualenv 'deleteENV' invoking *virtualenv deleteENV*
-2) Activate the virtualenv with *source deleteENV/bin/activate*
-3) Install the requirements running *pip install -r requirements.txt
+- 1. Create a virtualenv 'deleteENV' invoking *virtualenv deleteENV*
+- 2. Activate the virtualenv with *source deleteENV/bin/activate*
+- 3. Install the requirements running *pip install -r requirements.txt
    --allow-all-external*
 
-Now the system is ready to use. For future sessions, only the step2 is required.
+Now the system is ready to use. Just it is needed to execute the right script,
 [Top](#top)
-
-## API Overview
-
-No API
-
-[Top](#top)
-
-## Testing
-
-### Unit tests
-
-
-### End-to-end tests
-
-
-[Top](#top)
-
 
 ## Support
 

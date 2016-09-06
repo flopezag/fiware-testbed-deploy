@@ -47,9 +47,12 @@ To deploy just a testsbed, it is required just execute one script. However some 
 
     fiwaretestbeddeploy/launch_vm.py
 
-The *launch_vm.py* ends in a few seconds, showing the floating IP. Although it is
-already possible to connect to the ubuntu account of the server (using the
-SSH key at *~/.ssh/testbedskuld_key*), the installation is still running
+The *launch_vm.py* ends in a few seconds, showing the floating IP. Then, it is
+ possible to connect to the ubuntu account of the server (using the
+SSH key at *~/.ssh/testbedskuld_key*).
+    ssh ubuntu@floating_ip
+
+Although the VM is active, the installation is still running
 inside the VM and needs a few minutes to complete. Usually the installation
 process lasts between 10 and 20 minutes. The job is finished after the file
 *config_vars* is copied into the */home/ubuntu* folder inside the virtual machine.
