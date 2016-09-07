@@ -5,7 +5,7 @@
 
 This guide defines the procedure to install the FIWARE Testbed Deploy.
 
-For general information, please refer to GitHub's [README](https://github.com/telefonicaid/fiware-testbed-deploy/blob/develop/README.md).
+For general information, please refer to GitHub's [README](https://github.com/telefonicaid/fiware-testbed-deploy/blob/master/README.md).
 
 ## Build and install
 
@@ -26,15 +26,16 @@ The recommend installation method is using a virtualenv. Actually, the installat
 process is only about the python dependencies, because the scripts do not need
 installation.
 
-- 1.- Create a virtualenv 'deleteENV' invoking *virtualenv deleteENV*
-- 2.- Activate the virtualenv with *source deleteENV/bin/activate*
+- 1.- Create a virtualenv 'ENV' invoking *virtualenv ENV*
+- 2.- Activate the virtualenv with *source ENV/bin/activate*
 - 3.- Install the requirements running *pip install -r requirements.txt
    --allow-all-external*
 
 ## Running FIWARE testbed deploy
 
 ### Deploying one testbed
-To deploy just a testbed, it is required just execute one script. However some variables should be exported before.
+To deploy just a testbed, it is required just execute one script. However some variables should be exported before, corresponding
+to the Cloud environment where the server is going to be deployed (to install the Openstack inside it).
 
     export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
     export OS_USERNAME=<a user with an account in the Cloud>
@@ -43,7 +44,7 @@ To deploy just a testbed, it is required just execute one script. However some v
     export OS_REGION_NAME=<the region name>
     export OS_USER_DOMAIN_NAME=<OpenStack user domain name>
     export OS_PROJECT_DOMAIN_NAME=<OpenStack project domain name>
-    export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the VM>
+    export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the server>
     export Region1=<the name for the region of the Cloud to be deployed>
 
     fiwaretestbeddeploy/launch_vm.py
@@ -140,7 +141,7 @@ And execute:
 
     fiwaretestbeddeploy/launch_vm.py
 
-In everything works correctly, you will obtain a set of logs like that:
+If everything works correctly, you will obtain a set of logs like that:
 
     RegionOne: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
     Waiting for ACTIVE status. (Try1 /30)

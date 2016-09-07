@@ -3,7 +3,7 @@
 ## Introduction
 
 FIWARE Testbed Deploy is a scripts sets developed to deploy Openstack testbeds. It includes a set of scripts to create a secure environment for testing is provided. The
-environment in a virtual machine using the FIWARE Lab infrastructure (or any Cloud infrastructure). Only it is required to have
+environment is a virtual machine using the FIWARE Lab infrastructure (or any Cloud infrastructure). Only it is required to have
 some valid credentials to access to a Cloud.
 
 The installation of the testbed is fully automatized and consists on an OpenStack

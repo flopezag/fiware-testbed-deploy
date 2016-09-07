@@ -46,19 +46,19 @@ The script uses a floating IP and creates both a keypair (it saves the SSH priva
 the port 22 (SSH) and allows the ICMP traffic. It is also possible to connect
 to any port from a VM using the same security group.
 
-The names of the keypair, the security group and other parameters as the preferable
-floating IP are configurable in the *settings.py* file, but most of the users may
+The names of the keypair, the security group, the booked floating IP are configurable in
+the *settings.py* file, but most of the users may
 ignore this file securely. However, to use the script in a different platform
 than FIWARE Lab, probably is necessary to change the parameter about the
 public shared network name.
 
 Although it is already possible to connect to the ubuntu account of the server, the installation is still running
-inside the VM and needs a few minutes to complete. Usually the installation
-process lasts between 10 and 20 minutes. The job is finished after the file
+inside the server and needs a few minutes to complete. Usually the installation
+process needs between 10 and 20 minutes. The job is finished after the file
 *config_vars* is copied into the */home/ubuntu* folder inside the virtual machine.
 
 When the installation is finished, the credential may be loaded with *. ~/config_vars*.
-The command *nova list* shows a testing VM that has been created during the installation
+The command *nova list* shows a testing server that has been created during the installation
 inside the testbed (that is, it is a virtual machine running inside the testbed
 virtual machine). The floating IP 192.168.58.201 is associated to this
 VM (that is the second IP of the pool, the first was assigned to the router). It is
@@ -81,16 +81,16 @@ security groups.
      $ ssh cirros@192.168.58.3
 
 The micro flavor provides 64MB of RAM, 1 VCPU and 1GB of disk. The micro2 flavor is the
-same, but with 0GB of disk (i.e. a minimal disk to boot the image is created
-but with barely free space)
+same, but without extra disk (i.e. a minimal disk to boot the image is created
+but with barely free space).
 
 ### Deploying three testbeds
 
 The *deploythreeglances.py* script deploys 3 OpenStack Image Repositories (Glance) which share the same
 Identity Service called Keystone. Each glance is deployed on a different server accessible by a floating IP.
-It is possible to access by SSH Key and its configuration variables are in the file config_vars in
+It is possible to access by SSH Key and their configuration variables are in the file config_vars in
 /home/ubuntu folder inside the server, in the same way that it was explained in "Deploying one testbed"
-section. These 3 Glance testbeds are used for GlanceSync acceptance tests.
+section. These 3 Glance testbeds are used for GlanceSync acceptance tests (see [more information] (https://github.com/telefonicaid/fiware-glancesync/blob/master/README.rst).
 
 ### Undeploy testbed
 The *destroytestbeds.py* script undeploys an Openstack testbed belonging to the user specified in the environment variables.
@@ -105,7 +105,7 @@ to execute the phone home.
 
 ### Requirements
 - This scripts has been tested on a Debian 7 system, but any other recent Linux
-  distribution with the software described should work
+  distribution with the software described should work.
 
 The following software must be installed (e.g. using apt-get on Debian and Ubuntu,
 or with yum in CentOS):
@@ -116,12 +116,12 @@ or with yum in CentOS):
 
 ### Installation
 
-The recommend installation method is using a virtualenv. Actually, the installation
+The recommended installation method is using a virtualenv. Actually, the installation
 process is only about the python dependencies, because the scripts do not need
 installation.
 
-- 1. Create a virtualenv 'deleteENV' invoking *virtualenv deleteENV*
-- 2. Activate the virtualenv with *source deleteENV/bin/activate*
+- 1. Create a virtualenv 'ENV' invoking *virtualenv ENV*
+- 2. Activate the virtualenv with *source ENV/bin/activate*
 - 3. Install the requirements running *pip install -r requirements.txt
    --allow-all-external*
 
@@ -130,7 +130,7 @@ Now the system is ready to use. Just it is needed to execute the right script,
 
 ## Support
 
-Ask your thorough programmming questions using [stackoverflow](http://stackoverflow.com/questions/ask)
+Ask your thorough programming questions using [stackoverflow](http://stackoverflow.com/questions/ask)
 and your general questions on [FIWARE Q&A](https://ask.fiware.org). In both cases please use the tag `fiware-testbed-deploy`
 
 [Top](#top)
