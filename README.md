@@ -86,7 +86,7 @@ but with barely free space).
 ### Deploying three testbeds
 
 The *deploythreeglances.py* script deploys 3 OpenStack Image Repositories (Glance) which share the same
-Identity Service called Keystone. Each glance is deployed on a different server accessible by a floating IP.
+Identity Service called Keystone. Each Glance is deployed on a different server accessible by a floating IP.
 It is possible to access by SSH Key and their configuration variables are in the file config_vars in
 /home/ubuntu folder inside the server, in the same way that it was explained in "Deploying one testbed"
 section. These 3 Glance testbeds are used for GlanceSync acceptance tests (see [more information] (https://github.com/telefonicaid/fiware-glancesync/blob/master/README.rst).
@@ -103,8 +103,6 @@ to execute the phone home.
 ## Build and install
 
 ### Requirements
-- This scripts has been tested on a Debian 7 system, but any other recent Linux
-  distribution with the software described should work.
 
 The following software must be installed (e.g. using apt-get on Debian and Ubuntu,
 or with yum in CentOS):
