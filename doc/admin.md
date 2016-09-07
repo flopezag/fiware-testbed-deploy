@@ -112,7 +112,7 @@ The *deploythreeglances.py* script deploys 3 OpenStack Image Repositories (Glanc
 Identity Service called Keystone. Each glance is deployed on a different server accessible by a floating IP.
 It is possible to access by SSH Key and its configuration variables are in the file config_vars in
 /home/ubuntu folder inside the server, in the same way that it was explained in "Deploying one testbed"
-section. These 3 Glance testbeds are used for GlanceSync acceptance tests (see [more information] (https://github.com/telefonicaid/fiware-glancesync/blob/master/README.rst).
+section. These 3 Glance testbeds are used for GlanceSync acceptance tests (see [more information] (https://github.com/telefonicaid/fiware-glancesync/blob/master/README.rst)).
 
 ## Sanity check procedures
 
