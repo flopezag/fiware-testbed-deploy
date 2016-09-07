@@ -26,15 +26,16 @@ The recommend installation method is using a virtualenv. Actually, the installat
 process is only about the python dependencies, because the scripts do not need
 installation.
 
-1) Create a virtualenv 'deleteENV' invoking *virtualenv deleteENV*
-2) Activate the virtualenv with *source deleteENV/bin/activate*
-3) Install the requirements running *pip install -r requirements.txt
+- 1.- Create a virtualenv 'deleteENV' invoking *virtualenv deleteENV*
+- 2.- Activate the virtualenv with *source deleteENV/bin/activate*
+- 3.- Install the requirements running *pip install -r requirements.txt
    --allow-all-external*
 
 ## Running FIWARE testbed deploy
 
 ### Deploying one testbed
-To deploy just a testsbed, it is required just execute one script. However some variables should be exported before.
+To deploy just a testbed, it is required just execute one script. However some variables should be exported before.
+
     export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
     export OS_USERNAME=<a user with an account in the Cloud>
     export OS_TENANT_NAME=<a project name from the account in the Cloud>
@@ -50,6 +51,7 @@ To deploy just a testsbed, it is required just execute one script. However some 
 The *launch_vm.py* ends in a few seconds, showing the floating IP. Then, it is
  possible to connect to the ubuntu account of the server (using the
 SSH key at *~/.ssh/testbedskuld_key*).
+
     ssh ubuntu@floating_ip
 
 Although the VM is active, the installation is still running
@@ -86,6 +88,7 @@ but with barely free space)
 
 ### Deploying three testbeds
 To deploy just a testsbed, it is required just execute one script. However some variables should be exported before.
+
     export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
     export OS_USERNAME=<a user with an account in the Cloud>
     export OS_TENANT_NAME=<a project name from the account in the Cloud>
@@ -122,6 +125,7 @@ one of the scripts, for instance *launch_vm.py*, which deploys a VM and installs
 Opentack.
 
 To do that, just export these set of variables:
+
     export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
     export OS_USERNAME=<a user with an account in the Cloud>
     export OS_TENANT_NAME=<a project name from the account in the Cloud>
@@ -133,6 +137,7 @@ To do that, just export these set of variables:
     export Region1=<the name for the region of the Cloud to be deployed>
 
 And execute:
+
     fiwaretestbeddeploy/launch_vm.py
 
 In everything works correctly, you will obtain a set of logs like that:
