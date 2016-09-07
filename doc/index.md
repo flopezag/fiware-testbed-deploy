@@ -2,7 +2,7 @@
 
 ## Introduction
 
-FIWARE Testbed Deploy is a set sof scripts developed to deploy/undeploy Openstack testbeds required for testings.
+FIWARE Testbed Deploy is a set of scripts developed to deploy/undeploy Openstack testbeds required for testings.
 It involves the deployment or undeployment of virtual machine using a Cloud infrastructure, and installing the required
  software by using cloud-init functionality. The software involves the installation and configuration of Openstack services.
   a set of scripts to create a secure environment for testing is provided. To execute the fiware-testbed-deploy only it is required to have
