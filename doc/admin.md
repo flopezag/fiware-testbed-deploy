@@ -113,7 +113,7 @@ section. These 3 Glance testbeds are used for GlanceSync acceptance tests.
 ## Sanity check procedures
 
 The Sanity Check Procedures are the steps that a System Administrator
-will take to verify that an installation is ready to be tested. This is
+takes to verify that an installation is ready to be tested. This is
 therefore a preliminary set of tests to ensure that obvious or basic
 malfunctioning is fixed before proceeding to unit tests, integration
 tests and user validation.
@@ -151,44 +151,3 @@ If everything works correctly, you will obtain a set of logs like that:
     Assigning floating IP 130.206.125.56
     waiting for keystone
     waiting for testbed one
-
-### List of Running Processes
-
-Due that fiware-testbed-deploy is a set of scripts without any software dependence, there is not any process running needed.
-
-### Network interfaces Up & Open
-
-There is not any server running.
-
-### Databases
-
-No database is required.
-
-## Diagnosis Procedures
-
-The Diagnosis Procedures are the first steps that a System Administrator
-will take to locate the source of an error in a GE. Once the nature of
-the error is identified with these tests, the system admin will very
-often have to resort to more concrete and specific testing to pinpoint
-the exact point of error and a possible solution. Such specific testing
-is out of the scope of this section.
-
-### Resource availability
-
-The resource availability in the node should be at least 2Gb of RAM and
-8GB of Hard disk in order to prevent enabler’s bad performance in both
-nodes. This means that bellow these thresholds the enabler is likely to
-experience problems or bad performance.
-
-###  Remote Service Access
-
-There is not a remote service access for the component.
-
-### Resource consumption
-
-No issues related to resources consumption have been detected.
-
-
-### I/O flows
-
-No applied.

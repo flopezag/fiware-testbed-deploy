@@ -3,7 +3,6 @@
 [![License badge](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
 [![Documentation badge](https://readthedocs.org/projects/fiware-testbed-deploy/badge/?version=latest)](http://fiware-testbed-deploy.readthedocs.org/en/latest/?badge=latest)
 [![Docker badge](https://img.shields.io/docker/pulls/fiware/fiware-testbed-deploy.svg)](https://hub.docker.com/r/fiware/fiware-deploy-one-testbed/)
-[![Support badge]( https://img.shields.io/badge/support-sof-yellowgreen.svg)](http://stackoverflow.com/questions/tagged/fiware-testbed-deploy)
 
 * [Introduction](#introduction)
 * [Overall description](#overall-description)
@@ -37,7 +36,7 @@ and OS_TENANT_NAME must be filled with the data of a valid FIWARE Lab account.
 The installation of the testbed is fully automatized and consists on an OpenStack
 instance where the original keystone server was replaced with the KeyRock server.
 This is work in progress; the current version only installs Glance, Nova and Neutron,
-but skuld also purges Swift, Cinder and Blueprint resources.
+but also purges Swift, Cinder and Blueprint resources.
 
 ### Deploying one testbed
 By using a fiware-testbed-deploy script (*launch_vm.py*), it is possible to deploy an entire Openstack testbed.
