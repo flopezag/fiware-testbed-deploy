@@ -1,5 +1,5 @@
 deploy-three-glances:
-  image: fiware-three-glances-deploy
+  image: three-glances-deploy
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME

@@ -1,5 +1,5 @@
 delete_testbed:
-  image: fiware-undeploy-testbed
+  image: undeploy-testbed
   environment: 
    - OS_AUTH_URL
    - OS_USERNAME
