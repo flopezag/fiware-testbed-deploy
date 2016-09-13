@@ -11,6 +11,6 @@ FIWARE Testbed Deploy source code can be found [here](https://github.com/telefon
 
 ## Documentation
 
-GitHub's [README](../README.md) provides a good documentation summary.
+GitHub's [README](https://github.com/telefonicaid/fiware-testbed-deploy/blob/develop/README.md) provides a good documentation summary.
 The [Admin Guide](admin.md) covers more advanced topics.
 
