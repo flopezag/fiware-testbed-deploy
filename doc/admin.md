@@ -50,8 +50,8 @@ Then, we execute the launch_vm.py script:
     python fiwaretestbeddeploy/launch_vm.py
 
 The *launch_vm.py* ends in a few seconds, showing the floating IP. Then, it is
- possible to connect to the ubuntu account of the server (using the
-SSH key at *~/.ssh/testbedskuld_key*).
+ possible to connect to the server using the
+SSH key at *~/.ssh/testbedskuld_key*). For an Ubuntu server, it is possible access as:
 
     ssh ubuntu@floating_ip
 
@@ -112,7 +112,7 @@ The *deploythreeglances.py* script deploys 3 OpenStack Image Repositories (Glanc
 Identity Service called Keystone. Each glance is deployed on a different server accessible by a floating IP.
 It is possible to access by SSH Key and its configuration variables are in the file config_vars in
 /home/ubuntu folder inside the server, in the same way that it was explained in "Deploying one testbed"
-section. These 3 Glance testbeds are used for GlanceSync acceptance tests (see [more information] (https://github.com/telefonicaid/fiware-glancesync/blob/master/README.rst)).
+section. These 3 Glance testbeds are used for GlanceSync acceptance tests (see [more information] (https://github.com/telefonicaid/fiware-glancesync/blob/master/README.rst).
 
 ## Sanity check procedures
 
