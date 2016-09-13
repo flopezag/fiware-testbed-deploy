@@ -125,6 +125,50 @@ installation.
 Now the system is ready to use. Just it is needed to execute the right script,
 [Top](#top)
 
+## Sanity check procedures
+
+The Sanity Check procedures are the steps that a System Administrator
+takes to verify that an installation is ready to be tested. This is
+therefore a preliminary set of tests to ensure that obvious or basic
+malfunctioning is fixed before proceeding to unit tests, integration
+tests and user validation.
+
+### End to End testing
+
+As fiware-testbed-deploy is composed by a set of scripts without any API, there
+is not a simple way to do an end-to-end testing. If we want to test, we should execute
+one of the scripts, for instance *launch_vm.py*, which deploys a server and installs an entire
+Opentack.
+
+To do that, just export these set of variables:
+
+    export OS_AUTH_URL=<the authentication URL for the keystone in the Cloud>
+    export OS_USERNAME=<a user with an account in the Cloud>
+    export OS_TENANT_NAME=<a project name from the account in the Cloud>
+    export OS_PASSWORD=<the password for an account in the Cloud>
+    export OS_REGION_NAME=<the region name>
+    export OS_USER_DOMAIN_NAME=<OpenStack user domain name>
+    export OS_PROJECT_DOMAIN_NAME=<OpenStack project domain name>
+    export BOOKED_IP=<a booked IP in your Cloud infrastructure to deploy the server>
+    export Region1=<the name for the region of the Cloud to be deployed>
+
+And execute:
+
+    fiwaretestbeddeploy/launch_vm.py
+
+If everything works correctly, you will obtain a set of logs like that:
+
+    RegionOne: VM with UUID 6a380709-e32a-45f5-9ec8-ea2450f24775
+    Waiting for ACTIVE status. (Try1 /30)
+    Waiting for ACTIVE status. (Try 2/30)
+    Keystone IP 130.206.125.56
+    Region1 IP: RegionOne 130.206.125.56
+    Assigning floating IP 130.206.125.56
+    waiting for keystone
+    waiting for testbed one
+
+[Top](#top)
+
 ## Support
 
 Ask your thorough programming questions using [stackoverflow](http://stackoverflow.com/questions/ask)
