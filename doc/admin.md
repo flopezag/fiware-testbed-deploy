@@ -62,7 +62,7 @@ process lasts between 10 and 20 minutes. The job is finished after the file
 
 When the installation is finished, the credential may be loaded with *. ~/config_vars*.
 The command *nova list* shows a cirros testing server that has been created during the installation
-inside the testbed (that is, it is a virtual machine running inside the testbed
+inside the testbed (that is, it is a cirros virtual machine running inside the testbed
 virtual machine). The floating IP 192.168.58.201 is associated to this
 server (that is the second IP of the pool, the first was assigned to the router). It is
 possible to connect to the server following this steps:
