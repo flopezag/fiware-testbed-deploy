@@ -2,7 +2,7 @@
 
 [![License badge](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
 [![Documentation badge](https://readthedocs.org/projects/fiware-testbed-deploy/badge/?version=latest)](http://fiware-testbed-deploy.readthedocs.org/en/latest/?badge=latest)
-[![Docker badge](https://img.shields.io/docker/pulls/fiware/fiware-testbed-deploy.svg)](https://hub.docker.com/r/fiware/fiware-deploy-one-testbed/)
+[![Docker badge](https://img.shields.io/docker/pulls/fiware/fiware-testbed-deploy.svg)](https://hub.docker.com/r/fiware/deploy-one-testbed/)
 
 * [Introduction](#introduction)
 * [Overall description](#overall-description)
