@@ -5,19 +5,19 @@ environment mainly undeploy the virtual machine already deployed using a Cloud i
 
 ----
 ## 1. Generating docker image
-Docker allows you to deploy a fiware-undeploy-testbed container, which undeploys the VM already deployed in a few minutes.
+Docker allows you to deploy a undeploy-testbed container, which undeploys the VM already deployed in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
   2. `cd fiware-testbed-deploy/docker/UndeployTestbed`
 
-Then, you just need to create a new docker image executing `docker build -t fiware-undeploy-testbed -f Dockerfile .`. Please keep in mind that if you do not change the name of the image
+Then, you just need to create a new docker image executing `docker build -t undeploy-testbed -f Dockerfile .`. Please keep in mind that if you do not change the name of the image
  it will automatically update an existing one.
 
 To see that the image is created run `docker images` and you see something like this:
 
     REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
-    fiware-undeploy-testbed    latest              103464a8ede0        30 seconds ago      551.3 MB
+    undeploy-testbed    latest              103464a8ede0        30 seconds ago      551.3 MB
 
 ----
 ## 2. Running docker image
@@ -36,7 +36,7 @@ Now is time to execute the container.  Previously you should configure a set var
 
 To run the container just execute:
 
-    docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME fiware-undeploy-testbed
+    docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME undeploy-testbed
 
 ----
 ## 3. Running with docker-compose

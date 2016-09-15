@@ -8,19 +8,19 @@ This version only installs Glance in addition to Keystone..
 
 ----
 ## 1. Generating docker image
-Docker allows you to deploy a fiware-three-glances-deploy container, which deploys the environment composed by the 3 virtual machines with a Cloud infrastructure in a few minutes.
+Docker allows you to deploy a three-glances-deploy container, which deploys the environment composed by the 3 virtual machines with a Cloud infrastructure in a few minutes.
 This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
 
   1. Download [fiware-testbed-deploy' source code](https://github.com/telefonicaid/fiware-testbed-deploy) from GitHub (`git clone https://github.com/telefonicaid/fiware-testbed-deploy.git`)
   2. `cd fiware-testbed-deploy/docker/DeployThreeGlances`
 
-Then, you just need to create a new docker image executing `docker build -t fiware-three-glances-deploy -f Dockerfile .`. Please keep in mind that if you do not change the name of the image
+Then, you just need to create a new docker image executing `docker build -t three-glances-deploy -f Dockerfile .`. Please keep in mind that if you do not change the name of the image
  it will automatically update an existing one.
 
 To see that the image is created run `docker images` and you see something like this:
 
     REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-    fiware-three-glances-deploy   latest              103464a8ede0        30 seconds ago      551.3 MB
+    three-glances-deploy   latest              103464a8ede0        30 seconds ago      551.3 MB
 
 ----
 ## 2. Running docker image
@@ -41,7 +41,7 @@ Now is time to execute the container.  Previously you should configure a set var
 
 To run the container just execute:
 
-    docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 -e Region2=$Region2 -e Region3=$Region3 fiware-three-glances-deploy
+    docker run -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME -e OS_PASSWORD=$OS_PASSWORD -e OS_REGION_NAME=$OS_REGION_NAME -e  OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME -e BOOKED_IP=$BOOKED_IP -e Region1=$Region1 -e Region2=$Region2 -e Region3=$Region3 three-glances-deploy
 
 ----
 ## 3. Running with docker-compose
