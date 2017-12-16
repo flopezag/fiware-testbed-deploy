@@ -1,3 +1,5 @@
+**WARNING: SUPPORT FOR THIS PROJECT IS DOSCONTINUED AND THIS REPOSITORY IS NO MORE MAINTANED**
+
 #<a name="top"></a>FIWARE Testbed Deploy
 
 [![License badge](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
